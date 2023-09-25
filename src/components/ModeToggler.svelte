@@ -1,11 +1,15 @@
 <script lang="ts">
-    const modes = [ 'PG', 'PG-13', 'R' ]
+  const modes = ["pg", "pg13", "r"];
 
-    export let modeValue: number;
+  export let modeValue: string;
 
-    function onClick() {
-        modeValue = (modeValue + 1) % modes.length
-    }
+  $: index = modes.indexOf(modeValue);
+
+  function onClick() {
+    modeValue = modes[(index + 1) % modes.length];
+  }
 </script>
 
-<button type="button" class="btn variant-filled" on:click={onClick}>{modes[modeValue]}</button>
+<button type="button" class="btn variant-filled" on:click={onClick}
+  >{modeValue.toUpperCase()}</button
+>
