@@ -1,7 +1,13 @@
 <script lang="ts">
-  import CenterCard from "../components/CenterCard.svelte";
   import Title from "../components/Title.svelte";
-  import StartButton from "../components/StartButton.svelte";
+  import CategoryPicker from "../components/CategoryPicker.svelte";
+  import ModeToggler from "../components/ModeToggler.svelte";
+  import NextButton from "../components/NextButton.svelte";
+  import CenterCard from "../components/CenterCard.svelte";
+
+  let endpoint = "/v1/truth";
+  let modeValue = "pg";
+  let question: string;
 
   let started = false;
 </script>
@@ -10,9 +16,14 @@
   class="w-screen h-screen flex flex-col items-center justify-center bg-pink-200 gap-10"
 >
   <Title />
-  <CenterCard {started} />
+  <div class="flex gap-2">
+    <CategoryPicker bind:endpoint />
+    <ModeToggler bind:modeValue />
+  </div>
 
-  {#if !started}
-    <StartButton bind:started />
+  {#if started}
+    <CenterCard {question} />
   {/if}
+
+  <NextButton {endpoint} {modeValue} bind:question bind:started />
 </main>

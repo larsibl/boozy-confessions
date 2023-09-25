@@ -2,8 +2,11 @@
   export let endpoint: string;
   export let modeValue: string;
   export let question: string = "";
+  export let started: boolean;
 
   function onClick() {
+    started = true;
+
     const path = `https://api.truthordarebot.xyz${endpoint}?rating=${modeValue}`;
 
     fetch(path)
@@ -15,5 +18,6 @@
   }
 </script>
 
-<button type="button" class="btn variant-filled" on:click={onClick}>NEXT</button
+<button type="button" class="btn variant-filled" on:click={onClick}
+  >{started ? "NEXT" : "START"}</button
 >
