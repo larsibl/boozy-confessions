@@ -1,9 +1,10 @@
 <script lang="ts">
+  export let endpoint: string;
   export let modeValue: string;
   export let question: string = "";
 
   function onClick() {
-    const path = `https://api.truthordarebot.xyz/v1/truth?rating=${modeValue}`;
+    const path = `https://api.truthordarebot.xyz${endpoint}?rating=${modeValue}`;
 
     fetch(path)
       .then((response) => response.json())

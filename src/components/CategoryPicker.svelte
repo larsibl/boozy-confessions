@@ -2,20 +2,20 @@
   import { RadioGroup, RadioItem } from "@skeletonlabs/skeleton";
 
   const categories = [
-    "Truth",
-    "Dare",
-    "Would You Rather",
-    "Never Have I Ever",
-    "Paranoia Question",
+    { label: "Truth", endpoint: "/v1/truth" },
+    { label: "Dare", endpoint: "/api/dare" },
+    { label: "Would You Rather", endpoint: "/api/wyr" },
+    { label: "Never Have I Ever", endpoint: "/api/nhie" },
+    { label: "Paranoia Question", endpoint: "/api/paranoia" },
   ];
 
-  export let categoryValue: number;
+  export let endpoint: string;
 </script>
 
 <RadioGroup>
-  {#each categories as category, index}
-    <RadioItem bind:group={categoryValue} name="justify" value={index}
-      >{category}</RadioItem
+  {#each categories as category}
+    <RadioItem bind:group={endpoint} name="mode" value={category.endpoint}
+      >{category.label}</RadioItem
     >
   {/each}
 </RadioGroup>
