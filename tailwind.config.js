@@ -26,7 +26,7 @@ export default {
                     'vintage',
                     'sahara',
                     'hamlindigo',
-                    'gold noveau',
+                    'gold-nouveau',
                     'crimson',
                 ],
             },
