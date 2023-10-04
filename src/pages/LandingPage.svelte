@@ -13,7 +13,7 @@
 </script>
 
 <main
-    class="w-screen h-screen flex flex-col items-center justify-center bg-pink-200 gap-10"
+    class="w-screen h-screen flex flex-col items-center justify-center gap-10"
 >
     <Title />
     <div class="flex gap-2">
