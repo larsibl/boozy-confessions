@@ -1,15 +1,16 @@
 <script lang="ts">
+    const icons = ['😇', '😏', '😈'];
     const modes = ['pg', 'pg13', 'r'];
 
-    export let modeValue: string;
+    export let mode = 'pg';
 
-    $: index = modes.indexOf(modeValue);
+    $: index = modes.indexOf(mode);
 
     function onClick() {
-        modeValue = modes[(index + 1) % modes.length];
+        mode = modes[(index + 1) % modes.length];
     }
 </script>
 
-<button type="button" class="btn variant-filled" on:click={onClick}
-    >{modeValue.toUpperCase()}</button
->
+<button type="button" class="btn variant-filled text-xl" on:click={onClick}>
+    {icons[index]}
+</button>
