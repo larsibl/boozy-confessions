@@ -22,7 +22,7 @@
     <button
         slot="element"
         type="button"
-        class="btn variant-filled text-xl"
+        class="btn rounded-lg text-xl variant-filled w-full md:rounded-full md:w-auto"
         on:click={onClick}
     >
         {icons[index]}

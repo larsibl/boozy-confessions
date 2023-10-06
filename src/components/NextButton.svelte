@@ -1,8 +1,8 @@
 <script lang="ts">
     export let endpoint: string;
     export let mode: string;
-    export let question: string = '';
     export let started: boolean;
+    export let question: string = '';
 
     function onClick() {
         started = true;
@@ -18,6 +18,8 @@
     }
 </script>
 
-<button type="button" class="btn variant-filled text-xl" on:click={onClick}
-    >{started ? 'NEXT' : 'START'}</button
+<button
+    type="button"
+    class="btn rounded-lg text-xl variant-filled md:rounded-full"
+    on:click={onClick}>{!started ? 'START' : 'NEXT'}</button
 >
