@@ -25,17 +25,21 @@
 
 <!-- <svelte:window on:resize={checkScreenSize} /> -->
 
-<main class="h-full flex flex-col items-center justify-center gap-10 p-6">
-    <Title />
+<main class="flex flex-col h-full gap-10 p-6">
+    <div class="basis-1/2 flex flex-col items-center justify-end gap-10">
+        <Title />
 
-    <div class="flex flex-col gap-2 w-full md:flex-row md:justify-center">
-        <CategoryPicker bind:endpoint />
-        <ModeToggler bind:mode />
+        <div class="flex flex-col gap-2 w-full md:flex-row md:justify-center">
+            <CategoryPicker bind:endpoint />
+            <ModeToggler bind:mode />
+        </div>
     </div>
 
-    {#if started}
-        <CenterCard {question} />
-    {/if}
+    <div class="basis-1/2 flex flex-col items-center justify-start gap-10">
+        {#if started}
+            <CenterCard {question} />
+        {/if}
 
-    <NextButton {endpoint} {mode} bind:question bind:started />
+        <NextButton {endpoint} {mode} bind:question bind:started />
+    </div>
 </main>
