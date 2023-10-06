@@ -1,25 +1,26 @@
 <script lang="ts">
-    export let endpoint: string;
-    export let mode: string;
+    import { createEventDispatcher } from 'svelte';
+
     export let started: boolean;
-    export let question: string = '';
+    export let disabled: boolean;
 
-    function onClick() {
-        started = true;
+    const dispatch = createEventDispatcher();
 
-        const path = `https://api.truthordarebot.xyz${endpoint}?rating=${mode}`;
+    function nextQuestion() {
+        if (!started) {
+            started = true;
+        }
 
-        fetch(path)
-            .then((response) => response.json())
-            .then((obj) => {
-                console.log(obj);
-                question = obj.question;
-            });
+        if (!disabled) {
+            dispatch('nextquestion');
+        }
     }
 </script>
 
 <button
     type="button"
-    class="btn rounded-lg text-xl variant-filled md:rounded-full"
-    on:click={onClick}>{!started ? 'START' : 'NEXT'}</button
+    class="btn rounded-lg text-xl variant-filled md:rounded-full {disabled &&
+        'opacity-50 cursor-wait'}"
+    on:click={nextQuestion}
+    >{!started ? 'START' : disabled ? 'WAIT' : 'NEXT'}</button
 >

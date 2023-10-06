@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { type Question, getQuestion } from '../features/get-question';
+
     import Title from '../components/Title.svelte';
     import CategoryPicker from '../components/CategoryPicker.svelte';
     import ModeToggler from '../components/ModeToggler.svelte';
@@ -7,9 +9,26 @@
 
     let endpoint = '/v1/truth';
     let mode = 'pg';
-    let question: string;
+    let question: Promise<Question>;
 
     let started = false;
+    let disabled = false;
+
+    async function nextQuestion() {
+        disabled = true;
+
+        question = getQuestion({ endpoint, mode });
+
+        question
+            .then(() => {
+                disabled = false;
+            })
+            .catch(() => {
+                setTimeout(() => {
+                    disabled = false;
+                }, 3000);
+            });
+    }
 </script>
 
 <main class="flex flex-col h-full gap-10 p-6">
@@ -28,9 +47,17 @@
         class="basis-2/5 flex flex-col items-center justify-between gap-10 md:basis-1/2 md:justify-normal"
     >
         {#if started}
-            <CenterCard {question} />
+            {#await question}
+                <div
+                    class="placeholder animate-pulse h-[72px] opacity-10 rounded-lg w-full md:h-12 md:rounded-full md:w-1/2"
+                />
+            {:then data}
+                <CenterCard text={data.question} />
+            {:catch error}
+                <CenterCard text={'You are going to fast – slow down 😘'} />
+            {/await}
         {/if}
 
-        <NextButton {endpoint} {mode} bind:started bind:question />
+        <NextButton on:nextquestion={nextQuestion} bind:started {disabled} />
     </div>
 </main>
