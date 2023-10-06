@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Confetti } from 'svelte-confetti';
     import ConfettiToggler from './ConfettiToggler.svelte';
+    import { onMount } from 'svelte';
 
     const green = '#14B8A6';
     const pink = '#D4418A';
@@ -16,7 +17,22 @@
     function onClick() {
         mode = modes[(index + 1) % modes.length];
     }
+
+    let smallScreen: boolean;
+
+    function checkScreenSize() {
+        smallScreen = window.innerWidth < 768; // 768px is the standard breakpoint for small screens
+    }
+
+    onMount(() => {
+        checkScreenSize();
+    });
+
+    $: x = smallScreen ? [-1, 1] : [-4.4, -0.2];
+    $: y = smallScreen ? [0.2, 1.1] : [-0.4, 0.5];
 </script>
+
+<svelte:window on:resize={checkScreenSize} />
 
 <ConfettiToggler>
     <button
@@ -28,5 +44,13 @@
         {icons[index]}
     </button>
 
-    <Confetti slot="confetti" cone rounded colorArray={[green, pink, white]} />
+    <Confetti
+        amount={100}
+        colorArray={[green, pink, white]}
+        cone={smallScreen}
+        rounded
+        slot="confetti"
+        {x}
+        {y}
+    />
 </ConfettiToggler>
