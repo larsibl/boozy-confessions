@@ -13,12 +13,12 @@
 </script>
 
 <RadioGroup
-    active="bg-primary-600 text-white"
+    active="bg-primary-600 text-white text-xl"
     background="bg-primary-200"
     border="border-2 border-primary-600"
     display="flex flex-col md:flex-row"
-    hover="hover:variant-soft-primary"
-    regionLabel="text-primary-600"
+    hover="hover:variant-soft-primary text-xl"
+    regionLabel="text-primary-600 text-xl"
     rounded="rounded-lg md:rounded-full"
 >
     {#each categories as category}

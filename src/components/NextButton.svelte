@@ -18,6 +18,6 @@
     }
 </script>
 
-<button type="button" class="btn variant-filled" on:click={onClick}
+<button type="button" class="btn variant-filled text-xl" on:click={onClick}
     >{started ? 'NEXT' : 'START'}</button
 >
