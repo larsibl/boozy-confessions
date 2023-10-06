@@ -1,4 +1,11 @@
 <script lang="ts">
+    import { Confetti } from 'svelte-confetti';
+    import ConfettiToggler from './ConfettiToggler.svelte';
+
+    const green = '#14B8A6';
+    const pink = '#D4418A';
+    const white = '#FFFFFF';
+
     const icons = ['😇', '😏', '😈'];
     const modes = ['pg', 'pg13', 'r'];
 
@@ -11,6 +18,15 @@
     }
 </script>
 
-<button type="button" class="btn variant-filled text-xl" on:click={onClick}>
-    {icons[index]}
-</button>
+<ConfettiToggler>
+    <button
+        slot="element"
+        type="button"
+        class="btn variant-filled text-xl"
+        on:click={onClick}
+    >
+        {icons[index]}
+    </button>
+
+    <Confetti slot="confetti" cone rounded colorArray={[green, pink, white]} />
+</ConfettiToggler>
