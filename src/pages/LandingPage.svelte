@@ -26,7 +26,9 @@
 <!-- <svelte:window on:resize={checkScreenSize} /> -->
 
 <main class="flex flex-col h-full gap-10 p-6">
-    <div class="basis-1/2 flex flex-col items-center justify-end gap-10">
+    <div
+        class="basis-3/5 flex flex-col items-center justify-end gap-10 md:basis-1/2"
+    >
         <Title />
 
         <div class="flex flex-col gap-2 w-full md:flex-row md:justify-center">
@@ -35,11 +37,13 @@
         </div>
     </div>
 
-    <div class="basis-1/2 flex flex-col items-center justify-start gap-10">
+    <div
+        class="basis-2/5 flex flex-col items-center justify-between gap-10 md:basis-1/2 md:justify-normal"
+    >
         {#if started}
             <CenterCard {question} />
         {/if}
 
-        <NextButton {endpoint} {mode} bind:question bind:started />
+        <NextButton {endpoint} {mode} bind:started bind:question />
     </div>
 </main>
