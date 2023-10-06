@@ -6,24 +6,22 @@
     import CenterCard from '../components/CenterCard.svelte';
 
     let endpoint = '/v1/truth';
-    let modeValue = 'pg';
+    let mode = 'pg';
     let question: string;
 
     let started = false;
 </script>
 
-<main
-    class="w-screen h-screen flex flex-col items-center justify-center gap-10"
->
+<main class="h-full flex flex-col items-center justify-center gap-10">
     <Title />
     <div class="flex gap-2">
         <CategoryPicker bind:endpoint />
-        <ModeToggler bind:modeValue />
+        <ModeToggler bind:mode />
     </div>
 
     {#if started}
         <CenterCard {question} />
     {/if}
 
-    <NextButton {endpoint} {modeValue} bind:question bind:started />
+    <NextButton {endpoint} {mode} bind:question bind:started />
 </main>

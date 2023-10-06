@@ -1,13 +1,13 @@
 <script lang="ts">
     export let endpoint: string;
-    export let modeValue: string;
+    export let mode: string;
     export let question: string = '';
     export let started: boolean;
 
     function onClick() {
         started = true;
 
-        const path = `https://api.truthordarebot.xyz${endpoint}?rating=${modeValue}`;
+        const path = `https://api.truthordarebot.xyz${endpoint}?rating=${mode}`;
 
         fetch(path)
             .then((response) => response.json())
