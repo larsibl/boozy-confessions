@@ -1,8 +1,12 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
 
-    export let started: boolean;
     export let disabled: boolean;
+    export let started: boolean;
+
+    const next = 'NEXT';
+    const start = 'START';
+    const wait = 'WAIT';
 
     const dispatch = createEventDispatcher();
 
@@ -22,5 +26,6 @@
     class="btn rounded-lg text-xl variant-filled md:rounded-full {disabled &&
         'opacity-50 cursor-wait'}"
     on:click={nextQuestion}
-    >{!started ? 'START' : disabled ? 'WAIT' : 'NEXT'}</button
 >
+    {!started ? start : disabled ? wait : next}
+</button>
