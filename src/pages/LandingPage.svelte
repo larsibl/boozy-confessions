@@ -32,8 +32,8 @@
     }
 </script>
 
-<main class="flex flex-col gap-10 h-full p-6">
-    <div class="basis-3/5 flex flex-col gap-10 items-center justify-end md:basis-1/2">
+<main class="flex flex-col gap-10 h-full p-4">
+    <div class="basis-3/5 flex flex-col gap-10 items-center justify-end whitespace-nowrap md:basis-1/2">
         <Title />
 
         <div class="flex flex-col gap-2 w-full md:flex-row md:justify-center">
