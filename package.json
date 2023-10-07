@@ -43,10 +43,5 @@
     "type": "module",
     "dependencies": {
         "ts-node": "^10.9.1"
-    },
-    "prettier": {
-        "tabWidth": 4,
-        "useTabs": false,
-        "singleQuote": true
     }
 }
