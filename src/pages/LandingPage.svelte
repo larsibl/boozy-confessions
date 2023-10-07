@@ -6,6 +6,7 @@
     import RatingButton from '../components/RatingButton.svelte';
     import Title from '../components/Title.svelte';
     import TypeSelector from '../components/TypeSelector.svelte';
+    import Placeholder from '../components/Placeholder.svelte';
 
     let disabled = false;
     let endpoint = '/v1/truth';
@@ -44,9 +45,7 @@
     <div class="basis-2/5 flex flex-col items-center justify-between gap-10 md:basis-1/2 md:justify-normal">
         {#if started}
             {#await question}
-                <div
-                    class="placeholder animate-pulse h-[72px] opacity-10 rounded-lg w-full md:h-12 md:rounded-full md:w-1/2"
-                />
+                <Placeholder />
             {:then data}
                 <CenterCard text={data.question} />
             {:catch error}

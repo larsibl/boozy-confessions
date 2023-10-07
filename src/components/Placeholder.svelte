@@ -1,0 +1,1 @@
+<div class="placeholder animate-pulse h-[72px] opacity-10 rounded-lg w-full md:h-12 md:rounded-full md:w-1/2" />
