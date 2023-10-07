@@ -1,4 +1,4 @@
-export const base = 'https://api.truthordarebot.xyz';
+export const baseURL = 'https://api.truthordarebot.xyz';
 
 export type Question = {
     id: string;
@@ -16,7 +16,7 @@ export type Question = {
 };
 
 export async function getQuestion({ endpoint, rating }: { endpoint: string; rating: string }): Promise<Question> {
-    const url = new URL(endpoint, base);
+    const url = new URL(endpoint, baseURL);
     url.searchParams.set('rating', rating);
 
     return fetch(url).then((response) => response.json());
