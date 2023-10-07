@@ -8,14 +8,14 @@
     const white = '#FFFFFF';
 
     const icons = ['😇', '😏', '😈'];
-    const modes = ['pg', 'pg13', 'r'];
+    const ratings = ['pg', 'pg13', 'r'];
 
-    export let mode = 'pg';
+    export let rating = 'pg';
 
-    $: index = modes.indexOf(mode);
+    $: index = ratings.indexOf(rating);
 
     function onClick() {
-        mode = modes[(index + 1) % modes.length];
+        rating = ratings[(index + 1) % ratings.length];
     }
 
     let smallScreen: boolean;

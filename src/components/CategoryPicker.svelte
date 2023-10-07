@@ -22,7 +22,7 @@
     rounded="rounded-lg md:rounded-full"
 >
     {#each categories as category}
-        <RadioItem bind:group={endpoint} name="mode" value={category.endpoint}
+        <RadioItem bind:group={endpoint} name="rating" value={category.endpoint}
             >{category.label}</RadioItem
         >
     {/each}

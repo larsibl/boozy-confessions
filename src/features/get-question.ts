@@ -1,3 +1,5 @@
+export const base = 'https://api.truthordarebot.xyz';
+
 export type Question = {
     id: string;
     question: string;
@@ -15,12 +17,13 @@ export type Question = {
 
 export async function getQuestion({
     endpoint,
-    mode,
+    rating,
 }: {
     endpoint: string;
-    mode: string;
+    rating: string;
 }): Promise<Question> {
-    const path = `https://api.truthordarebot.xyz${endpoint}?rating=${mode}`;
+    const url = new URL(endpoint, base);
+    url.searchParams.set('rating', rating);
 
-    return fetch(path).then((response) => response.json());
+    return fetch(url).then((response) => response.json());
 }

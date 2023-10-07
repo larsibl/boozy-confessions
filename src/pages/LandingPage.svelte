@@ -3,12 +3,12 @@
 
     import Title from '../components/Title.svelte';
     import CategoryPicker from '../components/CategoryPicker.svelte';
-    import ModeToggler from '../components/ModeToggler.svelte';
+    import RatingButton from '../components/RatingButton.svelte';
     import NextButton from '../components/NextButton.svelte';
     import CenterCard from '../components/CenterCard.svelte';
 
     let endpoint = '/v1/truth';
-    let mode = 'pg';
+    let rating = 'pg';
     let question: Promise<Question>;
 
     let started = false;
@@ -17,7 +17,7 @@
     async function nextQuestion() {
         disabled = true;
 
-        question = getQuestion({ endpoint, mode });
+        question = getQuestion({ endpoint, rating });
 
         question
             .then(() => {
@@ -39,7 +39,7 @@
 
         <div class="flex flex-col gap-2 w-full md:flex-row md:justify-center">
             <CategoryPicker bind:endpoint />
-            <ModeToggler bind:mode />
+            <RatingButton bind:rating />
         </div>
     </div>
 
