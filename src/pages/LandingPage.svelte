@@ -1,18 +1,18 @@
 <script lang="ts">
     import { type Question, getQuestion } from '../features/get-question';
 
-    import Title from '../components/Title.svelte';
-    import CategoryPicker from '../components/CategoryPicker.svelte';
-    import RatingButton from '../components/RatingButton.svelte';
-    import NextButton from '../components/NextButton.svelte';
     import CenterCard from '../components/CenterCard.svelte';
+    import NextButton from '../components/NextButton.svelte';
+    import RatingButton from '../components/RatingButton.svelte';
+    import Title from '../components/Title.svelte';
+    import TypeSelector from '../components/TypeSelector.svelte';
 
+    let disabled = false;
     let endpoint = '/v1/truth';
     let rating = 'pg';
-    let question: Promise<Question>;
-
     let started = false;
-    let disabled = false;
+
+    let question: Promise<Question>;
 
     async function nextQuestion() {
         disabled = true;
@@ -38,7 +38,7 @@
         <Title />
 
         <div class="flex flex-col gap-2 w-full md:flex-row md:justify-center">
-            <CategoryPicker bind:endpoint />
+            <TypeSelector bind:endpoint />
             <RatingButton bind:rating />
         </div>
     </div>
