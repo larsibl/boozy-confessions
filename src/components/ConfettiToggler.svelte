@@ -18,7 +18,7 @@
     <slot name="element" />
 
     {#if active}
-        <div class="absolute top-0 left-1/2 -translate-y-4">
+        <div class="absolute left-1/2 top-0 -translate-y-4">
             <slot name="confetti" />
         </div>
     {/if}

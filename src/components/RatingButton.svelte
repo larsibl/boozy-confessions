@@ -36,9 +36,9 @@
 
 <ConfettiToggler>
     <button
+        class="btn rounded-lg text-xl variant-filled w-full md:rounded-full md:w-auto"
         slot="element"
         type="button"
-        class="btn rounded-lg text-xl variant-filled w-full md:rounded-full md:w-auto"
         on:click={onClick}
     >
         {icons[index]}
