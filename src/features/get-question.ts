@@ -15,13 +15,7 @@ export type Question = {
     type: string;
 };
 
-export async function getQuestion({
-    endpoint,
-    rating,
-}: {
-    endpoint: string;
-    rating: string;
-}): Promise<Question> {
+export async function getQuestion({ endpoint, rating }: { endpoint: string; rating: string }): Promise<Question> {
     const url = new URL(endpoint, base);
     url.searchParams.set('rating', rating);
 

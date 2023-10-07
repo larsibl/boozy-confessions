@@ -32,9 +32,7 @@
 </script>
 
 <main class="flex flex-col h-full gap-10 p-6">
-    <div
-        class="basis-3/5 flex flex-col items-center justify-end gap-10 md:basis-1/2"
-    >
+    <div class="basis-3/5 flex flex-col items-center justify-end gap-10 md:basis-1/2">
         <Title />
 
         <div class="flex flex-col gap-2 w-full md:flex-row md:justify-center">
@@ -43,9 +41,7 @@
         </div>
     </div>
 
-    <div
-        class="basis-2/5 flex flex-col items-center justify-between gap-10 md:basis-1/2 md:justify-normal"
-    >
+    <div class="basis-2/5 flex flex-col items-center justify-between gap-10 md:basis-1/2 md:justify-normal">
         {#if started}
             {#await question}
                 <div

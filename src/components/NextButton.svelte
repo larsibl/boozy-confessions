@@ -23,8 +23,7 @@
 
 <button
     type="button"
-    class="btn rounded-lg text-xl variant-filled md:rounded-full {disabled &&
-        'opacity-50 cursor-wait'}"
+    class="btn rounded-lg text-xl variant-filled md:rounded-full {disabled && 'opacity-50 cursor-wait'}"
     on:click={nextQuestion}
 >
     {!started ? start : disabled ? wait : next}

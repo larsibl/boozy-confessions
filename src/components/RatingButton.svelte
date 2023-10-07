@@ -44,13 +44,5 @@
         {icons[index]}
     </button>
 
-    <Confetti
-        amount={100}
-        colorArray={[green, pink, white]}
-        cone={smallScreen}
-        rounded
-        slot="confetti"
-        {x}
-        {y}
-    />
+    <Confetti amount={100} colorArray={[green, pink, white]} cone={smallScreen} rounded slot="confetti" {x} {y} />
 </ConfettiToggler>
