@@ -10,7 +10,7 @@ Motivasjonen bak dette prosjektet var å finne på noe enkelt og gøy, hvor resu
 
 ### Mål
 
-Ønsket for prosjektet var å lære mer om Svelte og SvelteKit, samt gjøre kall til et eksternt API. Jeg ønsket å utforske hvilke muligheter som fantes når det kom til designbibliotek, og jeg ville lære mer om responsivt design. I tillegg ville se om det var mulig å legge inn animasjoner.
+Ønsket for prosjektet var å lære mer om Svelte og SvelteKit, samt gjøre kall til et eksternt API. Jeg ønsket å utforske hvilke muligheter som fantes når det kom til designbibliotek, og jeg ville lære mer om responsivt design. I tillegg ville jeg se om det var mulig å legge inn animasjoner.
 
 ### API
 
@@ -22,7 +22,7 @@ API'et jeg endte opp med å bruke er [Truth or Date API](https://api.truthordare
 4. Never Have I Ever
 5. Paranoia Question
 
-I tillegg kan man bytte mellom tre forskjellige moduser – PG, PG-13 og R – alt ettersom hvor grove man ønsker at spørsmålene skal være. Disse valgte jeg å representere som 😇, 😏 og 😈.
+I tillegg kan man bytte mellom tre forskjellige moduser – PG, PG-13 og R – alt ettersom hvor "voksne" man ønsker at spørsmålene skal være. Disse valgte jeg å representere som 😇, 😏 og 😈.
 
 ### Design
 
