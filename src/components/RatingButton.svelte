@@ -36,7 +36,7 @@
 
 <ConfettiToggler>
     <button
-        class="btn rounded-lg text-xl variant-filled w-full md:rounded-full md:w-auto"
+        class="btn h-full rounded-lg text-xl variant-filled w-full md:rounded-full md:w-auto"
         slot="element"
         type="button"
         on:click={onClick}
